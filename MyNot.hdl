@@ -1,0 +1,12 @@
+/**
+ * Not gate:
+ * out = not in
+ */
+
+CHIP MyNot {
+    IN in;
+    OUT out;
+
+    PARTS:
+    Not(in=in, out=out);
+}
