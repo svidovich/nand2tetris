@@ -1,0 +1,12 @@
+/**
+ * Not gate:
+ * out = not in
+ */
+
+CHIP MyAnd {
+    IN ain, bin;
+    OUT o;
+
+    PARTS:
+    And(a=ain, b=bin, out=o);
+}
