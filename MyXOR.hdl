@@ -1,0 +1,11 @@
+CHIP MyXOR {
+    IN ain, bin;
+    OUT o;
+
+    PARTS:
+    Not(in=ain, out=notain);
+    Not(in=bin, out=notbin);
+    And(a=ain, b=notbin, out=u);
+    And(a=notain, b=bin, out=v);
+    Or(a=u, b=v, out=o);
+}
