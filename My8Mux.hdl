@@ -1,0 +1,40 @@
+CHIP My8Mux {
+	IN a[8],b[8] , sel;
+	OUT o[8];
+
+	PARTS:
+	/* Negated Selector */
+	Not(in=sel, out=notsel);
+	/* Element 1 */
+	Nand(a=a[0], b=notsel, out=c);
+	Nand(a=sel, b=b[0], out=d);
+	Nand(a=c, b=d, out=o[0]);
+	/* Element 2 */
+	Nand(a=a[1], b=notsel, out=e);
+	Nand(a=sel, b=b[1], out=f);
+	Nand(a=e, b=f, out=o[1]);
+	/* Element 3 */
+	Nand(a=a[2], b=notsel, out=g);
+	Nand(a=sel, b=b[2], out=h);
+	Nand(a=g, b=h, out=o[2]);
+	/* Element 4 */
+	Nand(a=a[3], b=notsel, out=i);
+	Nand(a=sel, b=b[3], out=j);
+	Nand(a=i, b=j, out=o[3]);
+	/* Element 5 */
+	Nand(a=a[4], b=notsel, out=k);
+	Nand(a=sel, b=b[4], out=l);
+	Nand(a=k, b=l, out=o[4]);
+	/* Element 6 */
+	Nand(a=a[5], b=notsel, out=m);
+	Nand(a=sel, b=b[5], out=n);
+	Nand(a=m, b=n, out=o[5]);
+	/* Element 7 */
+	Nand(a=a[6], b=notsel, out=p);
+	Nand(a=sel, b=b[6], out=q);
+	Nand(a=p, b=q, out=o[6]);
+	/* Element 8 */
+	Nand(a=a[7], b=notsel, out=r);
+	Nand(a=sel, b=b[7], out=s);
+	Nand(a=r, b=d, out=o[7]);
+}
