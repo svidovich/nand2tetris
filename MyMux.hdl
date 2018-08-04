@@ -1,0 +1,10 @@
+CHIP MyMux {
+	IN ain, bin, sel;
+	OUT o;
+
+	PARTS:
+	Not(in=sel, out=notsel);
+	Nand(a=ain, b=notsel, out=u);
+	Nand(a=sel, b=bin, out=v);
+	Nand(a=u, b=v, out=o);
+}
