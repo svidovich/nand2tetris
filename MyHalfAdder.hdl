@@ -1,0 +1,8 @@
+CHIP MyHalfAdder {
+    IN x, y;
+    OUT s, c;
+
+    PARTS:
+    Xor(a=x, b=y, out=s);
+    And(a=x, b=y, out=c);
+}
