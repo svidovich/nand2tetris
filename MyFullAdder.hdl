@@ -1,0 +1,16 @@
+CHIP MyFullAdder {
+    IN x, y, cin;
+    OUT cout, sout;
+
+    PARTS:
+    /* This is enough to be a half adder */
+    Xor(a=x, b=y, out=s);
+    And(a=x, b=y, out=c);
+    /* Now let's connect to another half */
+    Xor(a=s, b=cin, out=sout);
+    And(a=s, b=cin, out=u);
+    /* This piece gets the carry for the */
+    /* Adder, which will be attached to  */
+    /* the next adder we implement       */
+    Or(a=c, b=u,out=cout);
+}
