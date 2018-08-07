@@ -1,0 +1,13 @@
+CHIP MyInc {
+    IN x[16];
+    OUT o[16];
+
+    PARTS:
+    /* Start with a 16 bit adder                   */
+    /* The input is the entire 16 bit number x[16] */
+    /* Then, we have a 16 bit representation of 1  */
+    /* which we will add to our input...!          */
+    Add16(a=x, b[0]=true, b[1..15]=false, out=o);
+    /* This syntax can be used to replace array    */
+    /* elements more easily                        */
+}
