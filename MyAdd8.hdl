@@ -1,0 +1,17 @@
+CHIP MyAdd8 {
+    IN x[8], y[8];
+    OUT out[8];
+
+    PARTS:
+    /* We have no initial carry, so we start with a half adder */
+    HalfAdder(a=x[0], b=y[0], sum=out[0], carry=c1);
+    /* Now that we have a carry value, we can use full adders */
+    FullAdder(a=x[1], b=y[1], c=c1, sum=out[1], carry=c2);
+    FullAdder(a=x[2], b=y[2], c=c2, sum=out[2], carry=c3);
+    FullAdder(a=x[3], b=y[3], c=c3, sum=out[3], carry=c4);
+    FullAdder(a=x[4], b=y[4], c=c4, sum=out[4], carry=c5);
+    FullAdder(a=x[5], b=y[5], c=c5, sum=out[5], carry=c6);
+    FullAdder(a=x[6], b=y[6], c=c6, sum=out[6], carry=c7);
+    /* We only have 8 bits. We cannot handle a carry here. */
+    FullAdder(a=x[7], b=y[7], c=c7, sum=out[7]);
+}
